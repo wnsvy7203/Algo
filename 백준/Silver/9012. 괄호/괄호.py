@@ -1,11 +1,11 @@
 # Silver 4
-#
+# 76ms
 
 import sys
 T = int(sys.stdin.readline())
 
 for _ in range(T):
-    check = input()
+    check = sys.stdin.readline().rstrip()
     stk = []
     for i in check:
         if i == '(':
