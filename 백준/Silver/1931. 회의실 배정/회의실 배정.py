@@ -1,9 +1,10 @@
-# 156ms
+# Silver 1
+# 4416ms
 import sys
 from collections import deque
 
 N = int(sys.stdin.readline())
-time = sorted([list(map(int, input().split())) for _ in range(N)])
+time = sorted([list(map(int, sys.stdin.readline().split())) for _ in range(N)])
 time.sort(key=lambda x: x[1])
 time = deque(time)
 
