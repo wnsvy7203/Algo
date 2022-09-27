@@ -1,7 +1,7 @@
 # silver 2
+# 476ms
 
 import sys
-
 
 N, M, B = map(int, sys.stdin.readline().split())
 land = []
@@ -9,10 +9,12 @@ land = []
 for _ in range(N):
     land += list(map(int, sys.stdin.readline().split()))
 
+bottom, top = min(land), max(land)
+
 minV = float('inf')
 res = 0
 
-for height in range(257):
+for height in range(bottom, top + 1):
     s = 0
     e = 0
     for i in range(N*M):
