@@ -4,7 +4,10 @@ import sys
 
 
 N, M, B = map(int, sys.stdin.readline().split())
-land = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+land = []
+
+for _ in range(N):
+    land += list(map(int, sys.stdin.readline().split()))
 
 minV = float('inf')
 res = 0
@@ -12,12 +15,11 @@ res = 0
 for height in range(257):
     s = 0
     e = 0
-    for i in range(N):
-        for j in range(M):
-            if land[i][j] >= height:
-                e += land[i][j] - height
-            else:
-                s += height - land[i][j]
+    for i in range(N*M):
+        if land[i] >= height:
+            e += land[i] - height
+        else:
+            s += height - land[i]
 
     if s > e + B:
         continue
