@@ -1,5 +1,5 @@
 # silver 3
-# 0ms
+# 604ms
 
 X = int(input())
 cal = [0 for _ in range(X+1)]
@@ -16,6 +16,5 @@ for x in range(2, X+1):
 
     else:
         cal[x] = cal[x-1] + 1
-
 
 print(cal[X])
