@@ -4,11 +4,11 @@
 
 ### 성능 요약
 
-메모리: 30840 KB, 시간: 68 ms
+메모리: 2020 KB, 시간: 0 ms
 
 ### 분류
 
-구현(implementation), 수학(math), 정수론(number_theory), 소수 판정(primality_test), 에라토스테네스의 체(sieve)
+구현, 수학, 정수론, 소수 판정, 에라토스테네스의 체
 
 ### 문제 설명
 
