@@ -1,4 +1,5 @@
 // Silver 3. Snail
+// 152ms
 
 #include <iostream>
 
@@ -9,6 +10,10 @@ int num;
 
 int main()
 {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
     cin >> N >> num;
 
     int board[N][N] = {0, };
