@@ -43,6 +43,10 @@ void bfs()
 
 int main()
 {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
     cin >> M >> N;
 
     for (int i = 0; i < N; i++)
