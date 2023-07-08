@@ -5,12 +5,12 @@
 
 using namespace std;
 
-long long N, M;
+int N, M;
 
-pair<long long, long long> func(long long n)
+pair<unsigned, unsigned> func(int n)
 {
-    long long two = 0;
-    long long five = 0;
+    unsigned two = 0;
+    unsigned five = 0;
 
     for (long long i = 2; i <= n; i *= 2)
         two += n / i;
@@ -25,9 +25,9 @@ int main()
 {
     cin >> N >> M;
 
-    pair<long long, long long> res1 = func(N);
-    pair<long long, long long> res2 = func(M);
-    pair<long long, long long> res3 = func(N-M);
+    pair<unsigned, unsigned> res1 = func(N);
+    pair<unsigned, unsigned> res2 = func(M);
+    pair<unsigned, unsigned> res3 = func(N-M);
 
     cout << min(res1.first - res2.first - res3.first, res1.second - res2.second - res3.second);
 }
