@@ -31,6 +31,9 @@ void stars(int r, int c, int n)
 
 int main()
 {
+    ios_base::sync_with_stdio(0);
+    cout.tie(0);
+
     cin >> N;
 
     memset(star, ' ', sizeof(star));
