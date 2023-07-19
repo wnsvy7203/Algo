@@ -1,4 +1,5 @@
 // Bronze 2. Blackjack
+// 24ms
 
 #include <iostream>
 #include <vector>
@@ -6,50 +7,35 @@
 
 using namespace std;
 
+int N, M;
+int nums[101];
+bool visited[101];
+
 int main()
 {
-    int N, M;
-
     cin >> N >> M;
 
-    vector<int> nums(N);
-    vector<int> visit(N);
-
     for (int i = 0; i < N; i++)
-    {
         cin >> nums[i];
-    }
 
-    for (int i = 0; i < N-3; i++)
-    {
-        visit[i] = 0;
-    }
     for (int i = N-3; i < N; i++)
-    {
-        visit[i] = 1;
-    }
+        visited[i] = 1;
 
-    vector<int> res;
+    int ans = 0;
 
     do
     {
         int sum = 0;
 
         for (int i = 0; i < N; i++)
-        {
-            if (visit[i] != 0)
-            {
+            if (visited[i])
                 sum += nums[i];
-            }
-        }
+
         if (sum <= M)
-        {
-            res.push_back(sum);
-        }
+            if (ans < sum)
+                ans = sum;
     }
-    while(next_permutation(visit.begin(), visit.end()));
+    while(next_permutation(visited, visited+N));
 
-    int max = *max_element(res.begin(), res.end());
-
-    cout << max;
+    cout << ans;
 }
