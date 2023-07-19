@@ -1,3 +1,6 @@
+// Bronze 5
+// ����
+
 #include <iostream>
 
 using namespace std;
@@ -8,23 +11,13 @@ int main()
 
     cin >> n;
 
-    if (n % 4 == 0)
-    {
-        if (n % 400 == 0)
-        {
+    if (!(n % 4))
+        if (!(n % 400))
             cout << 1;
-        }
-        else if (n % 100 != 0)
-        {
+        else if (n % 100)
             cout << 1;
-        }
         else
-        {
             cout << 0;
-        }
-    }
     else
-    {
         cout << 0;
-    }
 }
