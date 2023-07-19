@@ -1,27 +1,21 @@
 #include <iostream>
+#include <queue>
 
 using namespace std;
 
+priority_queue<pair<int, int>> que;
+
 int main()
 {
-    int arr[10];
+    cin.tie(0);
 
-    for (int i = 0; i < 9; i++)
-    {
-        cin >> arr[i];
-    }
-    
-    int num = arr[0];
-    int order = 1;
+    int num = 0;
 
-    for (int i = 1; i < 9; i++)
+    for (int i = 1; i <= 9; i++)
     {
-        if (num < arr[i])
-        {
-            num = arr[i];
-            order = i + 1;
-        }
+        cin >> num;
+        que.push({num, i});
     }
 
-    cout << num << "\n" << order;
+    cout << que.top().first << '\n' << que.top().second;
 }
