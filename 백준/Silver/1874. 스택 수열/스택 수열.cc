@@ -1,4 +1,5 @@
 // Silver 2. Stack Sequence
+// 56ms
 
 #include <iostream>
 #include <stack>
@@ -6,14 +7,16 @@
 
 using namespace std;
 
+int n;
+stack<int> stk;
+queue<char> cal;
+
 int main()
 {
-    int n;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
     cin >> n;
-
-    stack<int> stk;
-    queue<char> cal;
 
     bool flag = 1;
 
