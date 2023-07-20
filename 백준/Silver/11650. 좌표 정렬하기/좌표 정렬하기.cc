@@ -1,33 +1,31 @@
-// Silver 5. Sorting Coordinates
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
 
 using namespace std;
 
+int N;
+pair<int, int> dots[100001];
+
+bool comp(pair<int, int> a, pair<int, int> b)
+{
+    if (a.first != b.first)
+        return a.first < b.first;
+    else
+        return a.second < b.second;
+}
+
 int main()
 {
-    int N;
-
     cin >> N;
 
-    vector<vector<int>> dots(N, vector<int>(2, 0));
+    for (int i = 0; i < N; i++)
+        cin >> dots[i].first >> dots[i].second;
+
+    sort(dots, dots+N, comp);
 
     for (int i = 0; i < N; i++)
     {
-        int x, y;
-
-        cin >> x >> y;
-
-        dots[i][0] = x;
-        dots[i][1] = y;
-    }
-
-    sort(dots.begin(), dots.end());
-
-    for (int i = 0; i < N; i++)
-    {
-        cout << dots[i][0] << ' ' << dots[i][1] << '\n';
+        cout << dots[i].first << ' ' << dots[i].second << '\n';
     }
 }
