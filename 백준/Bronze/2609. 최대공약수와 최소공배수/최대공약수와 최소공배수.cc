@@ -1,20 +1,9 @@
 // Bronze 1. Lowest Common Multiple, Greatest Common Divisor
 
 #include <iostream>
+#include <numeric>
 
 using namespace std;
-
-int gcd(int a, int b)
-{
-    while (b != 0)
-    {
-        int r = a % b;
-        a = b;
-        b = r;
-    }
-
-    return a;
-}
 
 int main()
 {
@@ -22,5 +11,5 @@ int main()
 
     cin >> a >> b;
 
-    cout << gcd(a, b) << '\n' << a * b / gcd(a, b);
+    cout << gcd(a, b) << '\n' << lcm(a, b);
 }
