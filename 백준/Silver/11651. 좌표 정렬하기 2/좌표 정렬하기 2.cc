@@ -6,28 +6,29 @@
 
 using namespace std;
 
+int N;
+pair<int, int> dots[100001];
+
+bool comp(pair<int, int> a, pair<int, int> b)
+{
+    if (a.second != b.second)
+        return a.second < b.second;
+    else
+        return a.first < b.first;
+}
+
 int main()
 {
-    int N;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
     cin >> N;
 
-    vector<vector<int>> dots(N, vector<int>(2, 0));
+    for (int i = 0; i < N; i++)
+        cin >> dots[i].first >> dots[i].second;
+
+    sort(dots, dots+N, comp);
 
     for (int i = 0; i < N; i++)
-    {
-        int x, y;
-
-        cin >> x >> y;
-
-        dots[i][0] = y;
-        dots[i][1] = x;
-    }
-
-    sort(dots.begin(), dots.end());
-
-    for (int i = 0; i < N; i++)
-    {
-        cout << dots[i][1] << ' ' << dots[i][0] << '\n';
-    }
+        cout << dots[i].first << ' ' << dots[i].second << '\n';
 }
