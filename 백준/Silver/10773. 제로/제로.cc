@@ -1,22 +1,18 @@
-// Silver 4. Zero
-
 #include <iostream>
 #include <vector>
 #include <numeric>
 
 using namespace std;
 
+int K;
+vector<int> stk;
+
 int main()
 {
-    ios::sync_with_stdio(0);
+    ios_base::sync_with_stdio(0);
     cin.tie(0);
-    cout.tie(0);
-
-    int K;
 
     cin >> K;
-
-    vector<int> stk;
 
     for (int i = 0; i < K; i++)
     {
