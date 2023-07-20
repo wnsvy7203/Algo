@@ -5,22 +5,18 @@
 
 using namespace std;
 
+int N, K;
+queue<int> que;
+
 int main()
 {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cout.tie(0);
-
-    int N, K;
 
     cin >> N >> K;
 
-    queue<int> que;
-
     for (int i = 1; i <= N; i++)
-    {
         que.push(i);
-    }
 
     cout << '<';
 
@@ -37,8 +33,8 @@ int main()
 
         if (que.size() == 1)
         {
-            cout << front;
-            break;
+            cout << front << '>';
+            return 0;
         }
         else
         {
@@ -46,6 +42,4 @@ int main()
             que.pop();
         }
     }
-
-    cout << '>';
 }
