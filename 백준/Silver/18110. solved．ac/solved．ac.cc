@@ -1,4 +1,5 @@
 // Silver 4. solved.ac
+// 108ms
 
 #include <iostream>
 #include <queue>
@@ -8,10 +9,11 @@
 
 using namespace std;
 
+int n;
+priority_queue<int> que;
+
 int main()
 {
-    int n;
-
     cin >> n;
 
     if (!n)
@@ -19,8 +21,6 @@ int main()
         cout << 0;
         return 0;
     }
-
-    priority_queue<int> que;
 
     for (int i = 0; i < n; i++)
     {
