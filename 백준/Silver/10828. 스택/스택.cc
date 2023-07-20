@@ -1,3 +1,6 @@
+// Silver 4. Stack
+// 336ms
+
 #include <iostream>
 #include <stack>
 #include <string>
@@ -9,7 +12,7 @@ stack<int> stk;
 
 int main()
 {
-    ios::sync_with_stdio(0);
+    ios_base::sync_with_stdio(0);
     cin.tie(0);
 
     cin >> N;
