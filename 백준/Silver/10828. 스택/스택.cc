@@ -1,29 +1,34 @@
-// Silver 4. Stack
-
 #include <iostream>
 #include <stack>
 #include <string>
 
 using namespace std;
 
+int N;
+stack<int> stk;
+
 int main()
 {
-    int N;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     cin >> N;
-
-    stack<int> stk;
 
     for (int i = 0; i <= N; i++)
     {
         string str;
 
-        getline(cin, str);
+        cin >> str;
 
-        if (str == "")
-            continue;
+        if (str == "push")
+        {
+            int num;
 
-        if (str == "pop")
+            cin >> num;
+
+            stk.push(num);
+        }
+        else if (str == "pop")
         {
             if (!stk.size())
                 cout << -1 << '\n';
@@ -34,37 +39,13 @@ int main()
             }
         }
         else if (str == "size")
-        {
             cout << stk.size() << '\n';
-        }
         else if (str == "empty")
-        {
             cout << stk.empty() << '\n';
-        }
         else if (str == "top")
-        {
             if (!stk.size())
                 cout << -1 << '\n';
             else
                 cout << stk.top() << '\n';
-        }
-        else
-        {
-            string integer;
-
-            int idx = 0;
-
-            for (int i = 0; i < str.length(); i++)
-            {
-                if (str[i] == ' ')
-                {
-                    idx = i + 1;
-                    break;
-                }
-
-            }
-
-            stk.push(stoi(str.substr(idx, 7)));
-        }
     }
 }
