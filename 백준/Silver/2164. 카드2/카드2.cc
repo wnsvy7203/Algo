@@ -1,22 +1,19 @@
-// Silver 4. Card 2
+// 
 
 #include <iostream>
 #include <queue>
 
 using namespace std;
 
+int N;
+queue<int> que;
+
 int main()
 {
-    int N;
-
     cin >> N;
 
-    queue<int> que;
-
     for (int i = 1; i <= N; i++)
-    {
         que.push(i);
-    }
 
     while (que.size() != 1)
     {
