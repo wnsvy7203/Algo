@@ -1,28 +1,23 @@
-// Silver 5. Big Guy
-
 #include <iostream>
-#include <vector>
 #include <algorithm>
 
 using namespace std;
 
+int N;
+int S[51][2];
+
 int main()
 {
-    int N;
-
     cin >> N;
 
-    vector<vector<int>> S(N, vector<int>(2, 0));
+    int x, y;
 
     for (int i = 0; i < N; i++)
     {
-        int a, b;
+        cin >> x >> y;
 
-        cin >> a >> b;
-
-        S[i][0] = a;
-        S[i][1] = b;
-
+        S[i][0] = x;
+        S[i][1] = y;
     }
 
     for (int i = 0; i < N; i++)
@@ -35,6 +30,6 @@ int main()
                 rank++;
         }
         
-        cout << rank << " ";
+        cout << rank << ' ';
     }
 }
