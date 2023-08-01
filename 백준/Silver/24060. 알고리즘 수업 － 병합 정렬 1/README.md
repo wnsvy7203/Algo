@@ -1,4 +1,4 @@
-# [Silver IV] 알고리즘 수업 - 병합 정렬 1 - 24060 
+# [Silver III] 알고리즘 수업 - 병합 정렬 1 - 24060 
 
 [문제 링크](https://www.acmicpc.net/problem/24060) 
 
