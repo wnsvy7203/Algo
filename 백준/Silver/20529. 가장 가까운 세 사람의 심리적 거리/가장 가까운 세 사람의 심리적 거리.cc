@@ -1,4 +1,5 @@
 // Silver 1. Nearest Three People's Psychological Distance
+// 104ms
 
 #include <iostream>
 #include <vector>
@@ -17,19 +18,18 @@ int distance(string a, string b)
 }
 
 int T;
+string type[33];
 
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-    cout.tie(0);
 
     cin >> T;
 
     while (T--)
     {
         int N;
-        vector<string> type;
 
         cin >> N;
 
@@ -38,17 +38,19 @@ int main()
             string mbti;
             cin >> mbti;
 
-            type.push_back(mbti);
+            if (N <= 32)
+                type[i] = mbti;                
         }
-
+        
         if (N > 32)
             cout << 0 << '\n';
         else
         {
             int minV = 1000;
-            
-            vector<bool> v(N-3, 0);
-            v.insert(v.end(), 3, 1);
+        
+            bool v[N] = {0, };
+            for (int i = N-1; i >= N-3; i--)
+                v[i] = 1;
             
             do
             {
@@ -58,7 +60,7 @@ int main()
 
                 minV = min(minV, distance(type[idx[0]], type[idx[1]]) + distance(type[idx[1]], type[idx[2]]) + distance(type[idx[2]], type[idx[0]]));
 
-            } while (next_permutation(v.begin(), v.end()));
+            } while (next_permutation(v, v+N));
 
             cout << minV << '\n';
         }
