@@ -18,7 +18,7 @@
 
 <p>총총이는 자신의 묘기인 <strong><span style="color:#8c00ff;">무</span><span style="color:#00b7ff;">지</span><span style="color:#ff0082;">개 </span></strong><span><strong><span style="color:#ff9000;">댄</span><span style="color:#00ff40;">스</span></strong>를 선보여, 여러분의 환심을 사려 한다. 이 댄스는 중독성이 강하기 때문에, 한번 보게 된 사람은 모두 따라 하게 돼버린다.</span></p>
 
-<p style="text-align: center;"><img alt="무지개 댄스를 추는 총총 2마리" src="https://upload.acmicpc.net/4efdc327-804f-4929-8b6f-5b85577135c8/-/preview/" style="max-height:120px; object-fit:contain; display:inline-block;"></p>
+<p style="text-align: center;"><img alt="무지개 댄스를 추는 총총 2마리" src="" style="max-height:120px; object-fit:contain; display:inline-block;"></p>
 
 <p>사람들이 만난 기록이 시간 순서대로 <mjx-container class="MathJax" jax="CHTML" style="font-size: 99.9%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$N$</span></mjx-container>개 주어진다. (총총이는 토끼이지만 이 문제에서는 편의상 사람이라고 가정한다.)</p>
 
