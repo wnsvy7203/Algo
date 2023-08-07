@@ -5,17 +5,7 @@
 using namespace std;
 
 int n;
-int cnt = 0;
-
-int fib(int x)
-{
-    if (x == 1 || x == 2)
-        cnt++;
-    else
-        fib(x-1) + fib(x-2);
-    
-    return cnt;
-}
+int dp[42];
 
 int main()
 {
@@ -24,5 +14,11 @@ int main()
 
     cin >> n;
 
-    cout << fib(n) << ' ' << n-2;
+    dp[1] = 1;
+    dp[2] = 1;
+
+    for (int i = 3; i <= n+1; i++)
+        dp[i] = dp[i-1] + dp[i-2];
+
+    cout << dp[n] << ' ' << n-2;
 }
