@@ -47,12 +47,8 @@ int main()
         graph[u].push_back(v);
     }
 
-    int res = dfs(1, 0);
-
-    res *= 2;
-    
-    if (res < N)
-        res++;
+    int res = dfs(1, 0) * 2;
+    res = N > res ? res+1 : res;
     
     cout << res;
 }
