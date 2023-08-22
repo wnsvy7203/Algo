@@ -25,6 +25,9 @@ void dfs(int r)
 
 int main()
 {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    
     cin >> N >> M;
     int A, B;
     while (M--)
