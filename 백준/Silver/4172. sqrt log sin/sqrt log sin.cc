@@ -1,4 +1,4 @@
-//
+// 496ms
 
 #include <iostream>
 #include <cmath>
@@ -13,10 +13,13 @@ int ans[MAX];
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     ans[0] = 1;
     for (int x = 1; x < MAX; x++)
     {
-        int a = (int)floor(x-sqrt(x));
+        int a = (int)(x-sqrt(x));
         int b = (int)log(x);
         int c = (int)(x*sin(x)*sin(x));
 
