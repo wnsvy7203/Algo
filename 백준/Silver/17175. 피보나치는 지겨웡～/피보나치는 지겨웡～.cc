@@ -8,7 +8,7 @@
 using namespace std;
 
 int n;
-long long int dp[51];
+int dp[51];
 
 int main()
 {
