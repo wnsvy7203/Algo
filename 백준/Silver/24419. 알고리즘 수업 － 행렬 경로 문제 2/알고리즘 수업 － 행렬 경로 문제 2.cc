@@ -1,4 +1,4 @@
-//
+// 392ms
 
 #include <iostream>
 
@@ -12,6 +12,9 @@ int dp[1001][1001];
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     for (int i = 0; i < 1001; i++)
         dp[0][i] = dp[i][0] = 1;
 
