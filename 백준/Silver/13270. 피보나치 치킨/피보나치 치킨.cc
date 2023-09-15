@@ -5,8 +5,7 @@
 using namespace std;
 
 int N;
-int dp1[10001];     // 최솟값 담는 배열
-int dp2[10001];     // 최댓값 담는 배열
+int dp[10001][2];
 
 int main()
 {
@@ -17,18 +16,18 @@ int main()
     int a = 1, b = 2;
 
     for (int i = 1; i <= N; i++)
-        dp1[i] = 10000;
+        dp[i][0] = 10000;
     
     while (b <= N)
     {
         for (int i = b; i <= N; i++)
         {
-            dp1[i] = min(dp1[i], dp1[i-b]+a);
-            dp2[i] = max(dp2[i], dp2[i-b]+a);
+            dp[i][0] = min(dp[i][0], dp[i-b][0]+a);
+            dp[i][1] = max(dp[i][1], dp[i-b][1]+a);
         }
         b += a;
         a = b-a;
     }
 
-    cout << dp1[N] << ' ' << dp2[N];
+    cout << dp[N][0] << ' ' << dp[N][1];
 }
