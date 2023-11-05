@@ -14,11 +14,10 @@ int main()
     cin >> N >> M;
     for (int i = 1; i <= N; i++)
         for (int j = 1; j <= N; j++)
+        {
             cin >> nums[i][j];
-
-    for (int i = 1; i <= N; i++)
-        for (int j = 1; j <= N; j++)
             dp[i][j] = nums[i][j] + dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1];
+        }
     
     while (M--)
     {
