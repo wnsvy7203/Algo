@@ -13,7 +13,7 @@ void post(int s, int e)
     
     int m = e+1;
 
-    for (int i = s+1; i < e+1; i++)
+    for (int i = s+1; i <= e; i++)
         if (pre[s] < pre[i])
         {
             m = i;
