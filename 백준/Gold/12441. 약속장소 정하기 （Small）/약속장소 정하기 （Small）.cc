@@ -75,7 +75,7 @@ void dijkstra(int idx)
         
         for (int i = 0; i < graph[node].size(); i++)
         {
-            int next_cost = graph[node][i].first;
+            int next_cost = graph[node][i].first * time;
             int next_node = graph[node][i].second;
 
             if (visited[idx][next_node] > cost + next_cost)
@@ -85,10 +85,6 @@ void dijkstra(int idx)
             }
         }
     }
-
-    for (int i = 1; i <= N; i++)
-        if (visited[idx][i] != INF)
-            visited[idx][i] *= time;
 }
 
 void find_answer()
