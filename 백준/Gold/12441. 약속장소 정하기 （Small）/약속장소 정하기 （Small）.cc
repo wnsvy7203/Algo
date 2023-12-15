@@ -91,21 +91,20 @@ void find_answer()
 {
     for (int i = 1; i <= N; i++)
     {
+        bool flag = 1;
         int tmp = 0;
         for (int j = 0; j < P; j++)
         {
             if (visited[j][i] == INF)
             {
-                tmp = -1;
+                flag = 0;
                 break;
             }
             tmp = max(tmp, visited[j][i]);
         }
 
-        if (tmp == -1)
-            continue;
-        
-        y = min(y, tmp);
+        if (flag)
+            y = min(y, tmp);
     }
 }
 
