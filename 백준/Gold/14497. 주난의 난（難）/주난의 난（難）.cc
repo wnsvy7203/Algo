@@ -113,7 +113,6 @@ void jump()
                 board[i][j] = '0';
 }
 
-
 int main()
 {
     ios_base::sync_with_stdio(false);
@@ -125,13 +124,13 @@ int main()
 
     while (1)
     {
-        jump();
-        ans++;
         bfs();
         if (visited[X2][Y2])
         {
-            cout << ans-1;
+            cout << ans;
             return 0;
         }
+        ans++;
+        jump();
     }
 }
