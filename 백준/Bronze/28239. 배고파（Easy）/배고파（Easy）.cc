@@ -15,17 +15,11 @@ int main()
     {
         cin >> m;
         for (int x = 0; x < 64; x++)
-        {
-            long long X = (1LL << x);
             for (int y = x; y < 64; y++)
-            {
-                long long Y = (1LL << y);
-                if (X + Y == m)
+                if ((1LL << x) + (1LL << y) == m)
                 {
                     cout << x << ' ' << y << '\n';
                     break;
                 }
-            }
-        }
     }
 }
