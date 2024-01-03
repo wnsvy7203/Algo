@@ -1,3 +1,5 @@
+// 12ms
+
 #include <iostream>
 
 #define INF 1e8
@@ -7,9 +9,8 @@ using namespace std;
 int N, M;
 int dp[201][201];
 
-void input()
+void init()
 {
-    cin >> N >> M;
     for (int i = 1; i <= N; i++)
         for (int j = 1; j <= N; j++)
         {
@@ -18,7 +19,12 @@ void input()
 
             dp[i][j] = INF;
         }
+}
 
+void input()
+{
+    cin >> N >> M;
+    init();
     while (M--)
     {
         int A, B, C;
