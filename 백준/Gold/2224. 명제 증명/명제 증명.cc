@@ -32,7 +32,7 @@ void floyd()
         for (int i = 0; i < 58; i++)
             for (int j = 0; j < 58; j++)
             {
-                if (graph[i][j] || i == j)
+                if (i == j)
                     continue;
 
                 if (graph[i][k] && graph[k][j])
