@@ -1,18 +1,18 @@
+// 948ms
+
 #include <iostream>
-#include <vector>
-#include <tuple>
 
 #define INF 1e9
 
 using namespace std;
 
 int N, T, M;
-vector<tuple<bool, int, int>> v;
+int v[1001][3];
 int graph[1001][1001];
 
-int dist(tuple<bool, int, int> a, tuple<bool, int, int> b)
+int dist(int a[3], int b[3])
 {
-    return abs(get<1>(a) - get<1>(b)) + abs(get<2>(a) - get<2>(b));
+    return abs(a[1] - b[1]) + abs(a[2] - b[2]);
 }
 
 void floyd()
@@ -34,7 +34,7 @@ void floyd()
 
             graph[i][j] = dist(v[i], v[j]);
             
-            if (get<0>(v[i]) && get<0>(v[j]))
+            if (v[i][0] && v[j][0])
                 graph[i][j] = min(graph[i][j], T);
         }
     
@@ -51,12 +51,7 @@ int main()
 
     cin >> N >> T;
     for (int i = 0; i < N; i++)
-    {
-        bool s;
-        int x, y;
-        cin >> s >> x >> y;
-        v.push_back({s, x, y});
-    }
+        cin >> v[i][0] >> v[i][1] >> v[i][2];
 
     floyd();
 
