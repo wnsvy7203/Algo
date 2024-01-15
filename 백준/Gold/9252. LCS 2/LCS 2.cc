@@ -48,8 +48,8 @@ int main()
             M--;
         else
         {
-            ans += str1[N-1];
             N--, M--;
+            ans += str1[N];
         }
     }
 
