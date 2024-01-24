@@ -1,3 +1,5 @@
+// 28ms
+
 #include <iostream>
 #include <vector>
 
@@ -98,10 +100,7 @@ void dynamic()
 
         for (int i = 0; i < 5; i++)
             for (int j = 0; j < 5; j++)
-            {
-                if (!dp[k][i][j])
-                    continue;
-                
+            {                
                 dp[k][next][j] = min(dp[k][next][j], dp[k-1][i][j] + cost(i, next));
                 dp[k][i][next] = min(dp[k][i][next], dp[k-1][i][j] + cost(j, next));
             }
