@@ -2,7 +2,6 @@
 #include <tuple>
 #include <algorithm>
 #include <climits>
-#include <cmath>
 
 using namespace std;
 
@@ -18,8 +17,8 @@ void input()
     sort(liquid, liquid+N);
 }
 
-tuple<long long, long long, long long> ans;
-long long comp = 3'000'000'000;
+tuple<int, int, int> ans;
+long long comp = LONG_LONG_MAX;
 void two_pointer()
 {
     for (int i = 0; i < N-2; i++)
