@@ -1,5 +1,3 @@
-// 12ms
-
 #include <iostream>
 
 #define INF 1e8
@@ -11,6 +9,8 @@ int dp[201][201];
 
 void init()
 {
+    cin >> N >> M;
+
     for (int i = 1; i <= N; i++)
         for (int j = 1; j <= N; j++)
         {
@@ -19,12 +19,7 @@ void init()
 
             dp[i][j] = INF;
         }
-}
-
-void input()
-{
-    cin >> N >> M;
-    init();
+    
     while (M--)
     {
         int A, B, C;
@@ -68,7 +63,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    input();
+    init();
     floyd();
     find_answer();
 }
