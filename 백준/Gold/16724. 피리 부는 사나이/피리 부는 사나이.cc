@@ -1,5 +1,6 @@
+// 20ms
+
 #include <iostream>
-#include <vector>
 
 #define MAX 1001
 
@@ -8,7 +9,6 @@ using namespace std;
 int N, M;
 int par[MAX*MAX];
 char board[MAX][MAX];
-vector<pair<int, int>> coord;
 
 int find(int x)
 {
@@ -67,10 +67,10 @@ void find_answer()
                     comp2 = comp1 + 1;
                     break;
             }
-                
+
             if (comp2 < 0 || comp2 >= N*M)
                 continue;
-            
+
             union_sets(comp1, comp2);
         }
     
