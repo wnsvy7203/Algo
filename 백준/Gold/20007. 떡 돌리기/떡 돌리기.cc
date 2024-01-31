@@ -1,3 +1,5 @@
+// 36ms
+
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -61,42 +63,36 @@ void find_answer()
     {
         if (dist[i] * 2 > X || dist[i] == INF)
         {
-            flag = 0;
-            break;
+            cout << -1;
+            return;
         }
 
-        if (dist[i])
-            dist_v.push_back(dist[i] * 2);
+        dist_v.push_back(dist[i] * 2);
     }    
 
-    if (flag)
+    int ans = 0;
+    int idx = 0;
+    sort(dist_v.begin(), dist_v.end());
+    while (1)
     {
-        int ans = 0;
-        int idx = 0;
-        sort(dist_v.begin(), dist_v.end());
+        ans++;
+        int time = X;
+
         while (1)
         {
-            ans++;
-            int time = X;
-
-            while (1)
-            {
-                if (time < dist_v[idx])
-                    break;
-                
-                time -= dist_v[idx++];
-                if (idx == dist_v.size())
-                    break;
-            }
-
+            if (time < dist_v[idx])
+                break;
+            
+            time -= dist_v[idx++];
             if (idx == dist_v.size())
                 break;
         }
 
-        cout << ans;
+        if (idx == dist_v.size())
+            break;
     }
-    else
-        cout << -1;
+
+    cout << ans;
 }
 
 int main()
