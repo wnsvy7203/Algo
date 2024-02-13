@@ -1,3 +1,5 @@
+// 8ms
+
 #include <iostream>
 
 #define MOD 1'000'000'007
@@ -13,8 +15,7 @@ long long Fermat(long long a, long long b)
     else if (b % 2)
         return a * Fermat(a, b-1) % MOD;
     
-    long long x = Fermat(a, b/2);
-    return x * x % MOD;
+    return Fermat(a, b/2) * Fermat(a, b/2) % MOD;
 }
 
 long long gcd(long long a, long long b)
