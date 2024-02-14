@@ -1,6 +1,4 @@
-// 
-// idea: 집에서부터 구하는 게 나을지 치킨집에서부터 고르는 게 나을지 고민
-// 우선 집에서부터 모든 치킨집까지의 거리를 구해서 
+// 4ms
 
 #include <iostream>
 #include <vector>
@@ -10,37 +8,37 @@ using namespace std;
 
 int N, M, board[50][50];
 bool visited[13];
-vector<pair<int, int>> home, chicken, v;
+vector<pair<int, int>> home, chicken, dist;
 
 int ans = 2501;
-int backtracking()
+int check_distance()
 {
     int sum = 0;
     for (pair<int, int> p : home)
     {
         int r = p.first;
         int c = p.second;
-        int dist = 2501;
+        int d = 2501;
 
-        for (int i = 0; i < v.size(); i++)
+        for (int i = 0; i < dist.size(); i++)
         {
-            int nr = v[i].first;
-            int nc = v[i].second;
+            int nr = dist[i].first;
+            int nc = dist[i].second;
             int nd = abs(nr-r) + abs(nc-c);
 
-            dist = min(dist, nd);
+            d = min(d, nd);
         }
 
-        sum += dist;
+        sum += d;
     }
     return sum;
 }
 
-void close(int idx, int depth)
+void backtracking(int idx, int depth)
 {
     if (depth == M)
     {
-        ans = min(ans, backtracking());
+        ans = min(ans, check_distance());
         return;
     }
 
@@ -49,12 +47,12 @@ void close(int idx, int depth)
         if (!visited[i])
         {
             visited[i] = 1;
-            v.push_back(chicken[i]);
+            dist.push_back(chicken[i]);
 
-            close(i, depth+1);
+            backtracking(i, depth+1);
 
             visited[i] = 0;
-            v.pop_back();
+            dist.pop_back();
         }
         
     }
@@ -76,6 +74,6 @@ int main()
                 chicken.push_back({i, j});
         }
     
-    close(0, 0);
+    backtracking(0, 0);
     cout << ans;
 }
