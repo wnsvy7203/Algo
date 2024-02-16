@@ -6,8 +6,16 @@ using namespace std;
 
 int ans;
 
+bool cmp(vector<int> a, vector<int> b)
+{
+    if (a[0] == b[0])
+        return a[0] < b[0];
+
+    return a[1] < b[1];
+}
+
 int solution(vector<vector<int>> targets) {
-    sort(targets.begin(), targets.end());
+    sort(targets.begin(), targets.end(), cmp);
     
     int now = 0;
     
@@ -21,8 +29,6 @@ int solution(vector<vector<int>> targets) {
             ans++;
             now = e;
         }
-        else
-            now = min(now, target[1]);
     }
     
     return ans;
