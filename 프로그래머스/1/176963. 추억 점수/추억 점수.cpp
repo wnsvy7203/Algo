@@ -4,10 +4,11 @@
 
 using namespace std;
 
+vector<int> answer;
+map<string, int> m;
+int res;
+
 vector<int> solution(vector<string> name, vector<int> yearning, vector<vector<string>> photo) {
-    vector<int> answer;
-    map<string, int> m;
-    int res;
     for (int i = 0; i < yearning.size(); i++)
         m[name[i]] = yearning[i];
     
