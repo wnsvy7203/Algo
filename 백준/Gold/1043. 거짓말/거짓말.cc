@@ -1,32 +1,83 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <queue>
 
 using namespace std;
 
-int N, M, K;        // N: 사람의 수, M: 파티의 수, K: 진실을 아는 사람의 수
-bool known[51];     // 진실을 아는지 모르는지 확인
-vector<int> party[51], graph[51];
-vector<bool> visited;
+int N, M, K, ans;
+bool known[51];
+int par[51];
+vector<int> party[51];
 
-queue<int> que;
-void bfs(int n)
+int find(int x)
 {
-    que.push(n);
+    if (par[x] == x)
+        return x;
+    
+    return par[x] = find(par[x]);
+}
 
-    while(!que.empty())
+void union_sets(int x, int y)
+{
+    x = find(x);
+    y = find(y);
+
+    if (x > y)
+        swap(x, y);
+    
+    par[y] = x;
+}
+
+void init()
+{
+    cin >> N >> M;
+    for (int i = 1; i <= N; i++)
+        par[i] = i;
+
+    cin >> K;
+    while (K--)
     {
-        int f = que.front();
-        que.pop();
-
-        for (int num : graph[f])
-            if (!known[num])
-            {
-                known[num] = 1;
-                que.push(num);
-            }
+        int num;
+        cin >> num;
+        known[num] = 1;
     }
+}
+
+void settings()
+{
+    for (int i = 0; i < M; i++)
+    {
+        int cnt;
+        cin >> cnt;
+        for (int j = 0; j < cnt; j++)
+        {
+            int num;
+            cin >> num;
+            party[i].push_back(num);
+        }
+
+        for (int j = 0; j < party[i].size()-1; j++)
+            union_sets(party[i][j], party[i][j+1]);
+    }
+}
+
+void find_answer()
+{
+    for (int i = 1; i <= N; i++)
+    {
+        if (known[i])
+        {
+            int num = find(i);
+            known[num] = 1;
+        }
+    }
+
+    for (int i = 0; i < M; i++)
+    {
+        int x = find(party[i][0]);
+        if (par[x] == x && !known[x])
+            ans++;
+    }
+    cout << ans;
 }
 
 int main()
@@ -34,80 +85,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    cin >> N >> M >> K;
-    while (K--)
-    {
-        int num;
-        cin >> num;
-        known[num] = true;
-    }
-
-    for (int i = 1; i <= M; i++)
-    {
-        int p;
-        cin >> p;
-        while (p--)
-        {
-            int par;
-            cin >> par;
-
-            party[i].push_back(par);
-        }
-    }
-
-    for (int i = 1; i <= M; i++)
-    {
-        visited.clear();
-        int len = party[i].size();
-        if (len < 2)
-            continue;
-        
-        for (int j = 0; j < len-2; j++)
-            visited.push_back(0);
-        for (int j = 0; j < 2; j++)
-            visited.push_back(1);
-
-        do
-        {
-            int one = 0;
-            int two = 0;
-            for (int j = 0; j < len; j++)
-            {
-                if (visited[j])
-                {
-                    if (!one)
-                        one = party[i][j];
-                    else if (!two)
-                        two = party[i][j];
-                }
-            }
-
-            if (one && two)
-            {
-                graph[one].push_back(two);
-                graph[two].push_back(one);
-            }
-
-        } while (next_permutation(visited.begin(), visited.end()));
-    }
-    
-    for (int i = 1; i < 51; i++)
-        if (known[i])
-            bfs(i);
-    
-    int ans = 0;
-    for (int i = 1; i <= M; i++)
-    {
-        bool flag = 1;
-        for (int p : party[i])
-        {
-            if (known[p])
-                flag = 0;
-        }
-
-        if (flag)
-            ans++;
-    }
-
-    cout << ans;
+    init();
+    settings();
+    find_answer();
 }
