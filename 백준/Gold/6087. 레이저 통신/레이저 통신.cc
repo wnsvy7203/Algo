@@ -10,6 +10,7 @@ int H, W;
 int r1 = -1, c1 = -1, r2 = -1, c2 = -1;
 char board[100][100];
 
+// 초깃값 설정
 void init()
 {
     cin >> W >> H;
@@ -38,6 +39,7 @@ void init()
     }
 }
 
+// bfs 로직
 queue<tuple<int, int, int>> que;
 int dist[100][100][4];
 int dr[4] = {-1, 1, 0, 0};
@@ -45,20 +47,11 @@ int dc[4] = {0, 0, -1, 1};
 void bfs()
 {
     fill_n(&dist[0][0][0], 100 * 100 * 4, INF);
+    // 시작점 기준으로 4방향 우선 탐색해서 que에 넣어주기
     for (int d = 0; d < 4; d++)
     {
-        int r = r1 + dr[d];
-        int c = c1 + dc[d];
-        int dir = d;
-
-        if (r < 0 || r >= H || c < 0 || c >= W)
-            continue;
-        
-        if (board[r][c] == '*')
-            continue;
-        
-        dist[r][c][d] = 0;
-        que.push({r, c, dir});
+        dist[r1][c1][d] = 0;
+        que.push({r1, c1, d});
     }
 
     while (!que.empty())
