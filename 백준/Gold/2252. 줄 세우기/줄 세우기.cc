@@ -7,6 +7,7 @@ using namespace std;
 int N, M;
 int degree[32001];
 vector<int> graph[32001];
+queue<int> que;
 
 void init()
 {
@@ -18,15 +19,14 @@ void init()
         graph[A].push_back(B);
         degree[B]++;
     }
-}
 
-queue<int> que;
-void topology_sort()
-{
     for (int i = 1; i <= N; i++)
         if (!degree[i])
             que.push(i);
-    
+}
+
+void topology_sort()
+{    
     while (!que.empty())
     {
         int node = que.front();
