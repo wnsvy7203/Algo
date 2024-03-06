@@ -18,7 +18,7 @@ void dynamic_programming()
 {
     for (int i = 1; i < N; i++)
     {
-        for (int j = 1; i+j <= N; j++)
+        for (int j = 1; j <= N-i; j++)
         {
             dp[j][i+j] = MAX;
             for (int k = j; k <= i+j; k++)
