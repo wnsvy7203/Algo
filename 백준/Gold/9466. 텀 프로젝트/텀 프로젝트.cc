@@ -1,5 +1,6 @@
+// 516ms
+
 #include <iostream>
-#include <vector>
 
 #define MAX 100001
 
@@ -7,16 +8,16 @@ using namespace std;
 
 int T, n, ans;
 int arr[MAX];
-bool visited[MAX], done[MAX];
+bool visited1[MAX], visited2[MAX];
 
 void dfs(int idx)
 {
-    visited[idx] = 1;
+    visited1[idx] = 1;
 
     int next = arr[idx];
-    if (!visited[next])
+    if (!visited1[next])
         dfs(next);
-    else if (!done[next])
+    else if (!visited2[next])
     {
         ans++;
 
@@ -24,14 +25,14 @@ void dfs(int idx)
             ans++;
     }
     
-    done[idx] = 1;
+    visited2[idx] = 1;
 }
 
 void find_answer()
 {
     ans = 0;
     for (int i = 1; i <= n; i++)
-        if (!done[i])
+        if (!visited1[i])
             dfs(i);
 
     cout << n - ans << '\n';
@@ -43,8 +44,8 @@ void init()
     while (T--)
     {
         fill_n(&arr[0], MAX, 0);
-        fill_n(&visited[0], MAX, false);
-        fill_n(&done[0], MAX, false);
+        fill_n(&visited1[0], MAX, false);
+        fill_n(&visited2[0], MAX, false);
 
         cin >> n;
         for (int i = 1; i <= n; i++)
