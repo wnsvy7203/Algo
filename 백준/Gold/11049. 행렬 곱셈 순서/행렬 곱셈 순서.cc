@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define MAX 2147483647
+#define MAX 1e9
 
 using namespace std;
 
